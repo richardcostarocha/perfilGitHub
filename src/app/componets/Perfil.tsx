@@ -14,7 +14,9 @@ const Perfil = () => {
 }
 
   return (
-    <div className="conteiner mx-auto bg-[#013952]">
+    <>
+    <div className="flex ">
+    <div className="conteiner mx-auto bg-[#013952] max-h-[680px] max-w-[460px] min-h-[680px] min-w-[460px]">
       <h1 className="text-center text-4xl my-4">Pesquisar Perfil</h1>
       <div className="max-w-2xl mx-auto flex rounded-md border bg-[#276C64] border-gray-400 p-4 m-4">
         <input 
@@ -27,7 +29,7 @@ const Perfil = () => {
         />
         <button className="mx-4 bg-[#61A391] border-gray-800 border rounded p-3" onClick={handleClick}>ADICIONAR</button> 
       </div>
-      
+      {perfilctx?.item.login !== '' ?
         <div className="container mx-auto">
           <img 
           src={perfilctx?.item.avatar_url}
@@ -35,8 +37,11 @@ const Perfil = () => {
            />
           <p className=" text-center">Nome: {perfilctx?.item.login}  </p>
           <p className=" text-center">Numeros de estrelas: {perfilctx?.item.stargazers_count}</p>
-        </div>     
+        </div>: <div className="h-96"></div> 
+      } 
     </div>
+    </div>
+    </>
   )
 }
 
